@@ -16,6 +16,7 @@ const Formulario = ({aoColaboradorCadastrado, times}: IFormulario) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const[data, setData] = useState('')
 
     const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
@@ -23,12 +24,14 @@ const Formulario = ({aoColaboradorCadastrado, times}: IFormulario) => {
             nome,
             cargo,
             imagem,
-            time
+            time,
+            data
         })
         setNome('')
         setCargo('')
         setImagem('')
         setTime('')
+        setData('')
     }
 
     return (
@@ -48,6 +51,13 @@ const Formulario = ({aoColaboradorCadastrado, times}: IFormulario) => {
                     placeholder="Digite seu cargo" 
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}
+                />
+                <CampoTexto
+                    label="Data de entrada"
+                    placeholder="" 
+                    valor={data}
+                    aoAlterado={valor => setData(valor)}
+                    tipo='date'
                 />
                 <CampoTexto
                     label="Imagem"
